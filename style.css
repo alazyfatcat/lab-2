@@ -1,0 +1,28 @@
+@charset "UTF-8";
+body{
+  font-family: sans-serif;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-top: 1px solid #ddd;
+}
+td {
+  color:Blue;
+}
+
+tr th:nth-child(1){
+  font-weight: bold;
+}
+
+tr th:nth-child(2){
+  font-weight: bold;
+}
+th p{
+  font-weight: 100;
+}

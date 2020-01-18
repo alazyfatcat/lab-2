@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Lab 2 | COMP1073 Client-Side JavaScript</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Airports</h1>
+	<table>
+		<tr>
+			<th>Code</th>
+			<th>Airport</th>
+		</tr>
+		<tr>
+			<td>PEK</td>
+			<th><p>Beijing Capital International</p></th>
+		</tr>
+		<tr>
+			<td>JFK</td>
+			<th><p>John F Kennedy International</p></th>
+		</tr>
+		<tr>
+			<td>YYZ</td>
+			<th><p>Lester B. Pearson International</p></th>
+		</tr>
+		<tr>
+			<td>LHR</td>
+			<th><p>London Heathrow</p></th>
+		</tr>
+		<tr>
+			<td>HND</td>
+			<th><p>Tokyo Haneda International</p></th>
+		</tr>
+
+    </table>
+</body>
+<script>
+    var airportList = document.querySelector('body ul');
+    airportList.innerHTML = '';
+    var airports = ['Beijing Capital International, https://goo.gl/maps/iPe5fAqzq8C2 PEK',
+                    'John F Kennedy International, https://goo.gl/maps/JWwABmA3MBS2 JFK',
+                    'Lester B. Pearson International, https://goo.gl/maps/Ypu1dJLsnQu YYZ',
+                    'London Heathrow, https://goo.gl/maps/TFx8SrATdYr LHR',
+                    'Tokyo Haneda International, https://goo.gl/maps/5UxH2TxbRtT2 HND'];
+
+    for(var i = 0; i < airports.length; i++) {
+        var input = airports[i];
+        // Put your code here inside this loop
+
+        // Find comma index
+        let commaIndex = input.indexOf(',');
+
+        //Getting airport name
+        let airportName = input.slice(0, commaIndex)
+
+        // Getting airport code
+        let airportCodeIndex = input.slice(-3)
+
+        //Getting airport URL
+        let airportURL = input.slice(commaIndex +1, -3)
+        console.log(airportURL)
+
+        //create an anchor link Link
+        let hyperlink = `<a href="${airportURL}">${airportCodeIndex} - ${airportName}</a>`;
+        console.log(hyperlink)
+
+        var result = hyperlink;
+        var listItem = document.createElement('li');
+        listItem.innerHTML = result;
+        airportList.appendChild(listItem);
+    }
+</script>
+</html>
